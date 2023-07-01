@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>朝阳热心市民的机器人问答</title>
+  <meta charset="UTF-8">
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+    }
+
+    .get-button {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>朝阳热心市民的机器人问答</h1>
+
+    <div class="form-group">
+      <label for="question">问题：</label>
+      <input type="text" id="question" placeholder="请输入问题">
+    </div>
+
+    <div class="form-group">
+      <label for="answer">回答：</label>
+      <input type="text" id="answer" placeholder="请输入答案">
+    </div>
+
+    <button class="get-button" onclick="generatePage()">生成新页面</button>
+  </div>
+
+  <script>
+    function generatePage() {
+      var question = document.getElementById("question").value;
+      var answer = document.getElementById("answer").value;
+
+      var newPageContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>朝阳热心市民的机器人问答</title>
+          <meta charset="UTF-8">
+          <style>
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+            }
+
+            h1 {
+              text-align: center;
+            }
+
+            .question {
+              font-weight: bold;
+              margin-top: 20px;
+            }
+
+            .answer {
+              margin-bottom: 20px;
+            }
+
+            .get-button {
+              display: block;
+              margin-top: 10px;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h1>朝阳热心市民的机器人问答</h1>
+
+            <div class="question">
+              <h2>问题：</h2>
+              <p>${question}</p >
+            </div>
+
+            <div class="answer">
+              <h2>回答：</h2>
+              <p>${answer}</p >
+            </div>
+
+            <button class="get-button" onclick="window.print()">打印</button>
+          </div>
+        </body>
+        </html>
+      `;
+
+      var newPage = window.open();
+      newPage.document.open();
+      newPage.document.write(newPageContent);
+      newPage.document.close();
+    }
+  </script>
+</body>
+</html>
